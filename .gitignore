@@ -35,6 +35,10 @@ xcuserdata
 *.suo
 *.db
 ipch/
+*.sln
+*.vcxproj
+*.filters
+*.user
 
 #Eclipse
 .metadata
@@ -61,3 +65,13 @@ local.properties
 Thumbs.db
 # Folder config file
 Desktop.ini
+
+# Some general ignore patterns
+build/
+*.mode*
+*.app/
+*.pyc
+.svn/
+.vs/
+
+
