@@ -4,7 +4,7 @@ Update:
 - tested on win10 with 0.9.3 with Visual Studio 2015
 - added information about digitizers that are installed on a device
 
-![image1] (img/infoAboutDigitizer.png)
+![image1](img/infoAboutDigitizer.png)
 - added simple example
 ![image2](img/exampleTouchCircles.png)
 
