@@ -17,4 +17,5 @@ class ofApp : public ofBaseApp{
 		
 	private:
 		map<int, ofPoint> touches;
+		//map<int, ofTouchEventArgs> touchMap;
 };
