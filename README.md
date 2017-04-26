@@ -7,6 +7,7 @@ Update:
 ![image](img/exampleTouchCircles.png)
 
 Orig:
+
 windows 7 + 8 touch for OF
 
 - using 'hooks' to catch touch events before the window processes the events
