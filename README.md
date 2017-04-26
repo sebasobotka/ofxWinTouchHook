@@ -1,4 +1,11 @@
 # ofxWinTouchHook
+
+update:
+- tested on win10 with 0.9.3 with Visual Studio 2015
+- added information about digitizers that are installed on a device
+- added simple example
+![image](img/exampleTouchCircles.png)
+
 windows 7 + 8 touch for OF
 
 - using 'hooks' to catch touch events before the window processes the events

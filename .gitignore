@@ -33,6 +33,7 @@ xcuserdata
 *.sdf
 *.opensdf
 *.suo
+*.db
 ipch/
 
 #Eclipse

@@ -18,11 +18,12 @@ Ref:
 
 
 class ofxWinTouchHook {
-
 	public:
 		static void EnableTouch();
 		static void DisableTouch();
-		
+		static void PrintSystemMetrics();
+		static bool hasTouch();
+
 		// making our own events as ofApp is giving us duplicates
 		static ofEvent<ofTouchEventArgs> touchDown;
 		static ofEvent<ofTouchEventArgs> touchMoved;

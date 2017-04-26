@@ -22,7 +22,6 @@ LRESULT __stdcall HookCallback(int nCode, WPARAM wParam, LPARAM lParam)
 {
 	if (nCode >= 0)
 	{
-
 		#ifdef USE_WM_POINTER_EVENTS
 		LPMSG pStruct = (LPMSG)lParam;
 		UINT message = pStruct->message;
@@ -54,10 +53,8 @@ LRESULT __stdcall HookCallback(int nCode, WPARAM wParam, LPARAM lParam)
 						ofNotifyEvent(ofxWinTouchHook::touchUp, touchEventArgs);
 					}
 				}
-
 				break;
 		}
-		
 
 		#else
 
@@ -139,11 +136,7 @@ LRESULT __stdcall HookCallback(int nCode, WPARAM wParam, LPARAM lParam)
 	// call the next hook in the hook chain. This is nessecary or your hook chain will break and the hook stops
 	return CallNextHookEx(_hook, nCode, wParam, lParam);
 }
-
-
 #endif
-
-
 
 //--------------------------------------------------------------
 void ofxWinTouchHook::EnableTouch() {
@@ -185,9 +178,52 @@ void ofxWinTouchHook::EnableTouch() {
 	#endif
 }
 
+//--------------------------------------------------------------
 void ofxWinTouchHook::DisableTouch() {
 
 	#ifdef TARGET_WIN32
 	UnhookWindowsHookEx(_hook);
 	#endif
 }
+
+//--------------------------------------------------------------
+void ofxWinTouchHook::PrintSystemMetrics() {
+	
+	//https://msdn.microsoft.com/en-us/library/windows/desktop/ms724385(v=vs.85).aspx
+
+	cout << "Nr of monitors " << GetSystemMetrics(SM_CMONITORS) << endl;
+	int res = GetSystemMetrics(SM_DIGITIZER);
+	cout << "Digitizer " << res << endl;
+	
+	if ((res & NID_INTEGRATED_TOUCH) > 0) {
+		cout << "The device has an integrated touch digitizer." << endl;
+	}
+	if ((res & NID_EXTERNAL_TOUCH) > 0) {
+		cout << "The device has an external touch digitizer." << endl;
+	}
+	if ((res & NID_INTEGRATED_PEN) > 0) {
+		cout << "The device has an external pen digitizer." << endl;
+	}
+	if ((res & NID_EXTERNAL_PEN) > 0) {
+		cout << "The device supports multiple sources of digitizer input." << endl;
+	}
+	if ((res & NID_MULTI_INPUT) > 0) {
+		cout << "The device supports multiple sources of digitizer input." << endl;
+	}
+	if ((res & NID_READY) > 0) {
+		cout << "The device is ready to receive digitizer input." << endl;
+	}
+
+	cout << "Nr of touches " << GetSystemMetrics(SM_MAXIMUMTOUCHES) << endl;
+}
+
+//--------------------------------------------------------------
+bool ofxWinTouchHook::hasTouch() {
+	
+	if (GetSystemMetrics(SM_DIGITIZER) > 0) {
+		return true;
+	}
+	return false;
+}
+
+
