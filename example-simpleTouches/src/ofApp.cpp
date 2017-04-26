@@ -40,16 +40,13 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::touchDown(ofTouchEventArgs & touch) {
 	touches.insert(pair<int, ofPoint>(touch.id, ofPoint(touch.x, touch.y)));
-	//touchMap[touch.id] = touch;
 }
 
 void ofApp::touchMove(ofTouchEventArgs & touch) {
 	touches[touch.id].set(touch.x, touch.y);
-	//touchMap[touch.id] = touch;
 }
 
 void ofApp::touchUp(ofTouchEventArgs & touch) {
 	touches.erase(touch.id);
-	//touchMap.erase(touch.id);
 }
 
