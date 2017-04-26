@@ -26,9 +26,14 @@ void ofApp::update(){
 void ofApp::draw(){
 	ofBackground(ofColor::black);
 
+	int i = 0;
 	for (auto& touch:touches) {
 		ofNoFill();
 		ofCircle(touch.second, 30);
+		ofSetColor(255);
+		ofDrawBitmapStringHighlight("id[" + ofToString(i) + "]:" + ofToString(touch.first), touch.second);
+		ofSetColor(ofColor::white);
+		i++;
 	}
 }
 

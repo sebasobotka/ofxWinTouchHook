@@ -52,6 +52,16 @@ LRESULT __stdcall HookCallback(int nCode, WPARAM wParam, LPARAM lParam)
 					else if (pointerInfo.pointerFlags & POINTER_FLAG_UP) {
 						ofNotifyEvent(ofxWinTouchHook::touchUp, touchEventArgs);
 					}
+
+					
+					//touch.id = pointer->pointerId;
+					//if (pointerInfo.pointerFlags & (POINTER_FLAG_CANCELED | POINTER_FLAG_CAPTURECHANGED)) {
+					//	/* Cancelled */
+					//	//touch.type = ofTouchEventArgs::Type::cancel;
+					//	ofNotifyEvent(ofEvents().touchCancelled, touch);
+					//	return true;
+					//}
+
 				}
 				break;
 		}
