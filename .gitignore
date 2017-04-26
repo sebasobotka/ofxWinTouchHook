@@ -39,6 +39,7 @@ ipch/
 *.vcxproj
 *.filters
 *.user
+*.rc
 
 #Eclipse
 .metadata
